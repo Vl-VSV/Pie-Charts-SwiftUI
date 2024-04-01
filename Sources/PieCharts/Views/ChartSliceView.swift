@@ -25,36 +25,34 @@ internal struct ChartSliceView: View {
                 let center = CGPoint(x: width * 0.5, y: height * 0.5)
                 
                 Path { path in
-                    path.move(to: center)
+                    let startAngle = Angle(degrees: -90.0) + controller.chartSliceData.startAngle
+                    let endAngle = Angle(degrees: -90.0) + controller.chartSliceData.endAngle
+                    let outerRadius = width * 0.5
+                    let innerRadius = width * controller.calculateInnerRadius()
+                    
+                    let innerEndPoint = CGPoint(x: center.x + CGFloat(cos(endAngle.radians)) * innerRadius, y: center.y + CGFloat(sin(endAngle.radians)) * innerRadius)
                     
                     path.addArc (
                         center: center,
-                        radius: width * 0.5,
-                        startAngle: Angle(degrees: -90.0) + controller.chartSliceData.startAngle,
-                        endAngle: Angle(degrees: -90.0) + controller.chartSliceData.endAngle,
+                        radius: outerRadius,
+                        startAngle: startAngle,
+                        endAngle: endAngle,
                         clockwise: false
+                    )
+                    
+                    path.addLine(to: innerEndPoint)
+                    
+                    path.addArc(
+                        center: center,
+                        radius: innerRadius,
+                        startAngle: endAngle,
+                        endAngle: startAngle,
+                        clockwise: true
                     )
                     
                     path.closeSubpath()
                 }
                 .fill(controller.chartSliceData.color)
-                
-                if !controller.chartSliceData.isStatic {
-                    Path { path in
-                        path.move(to: center)
-                        
-                        path.addArc(
-                            center: center,
-                            radius: width * controller.calculateInnerRadius(),
-                            startAngle: Angle(degrees: 0),
-                            endAngle: Angle(degrees: 360),
-                            clockwise: false
-                        )
-                        
-                        path.closeSubpath()
-                    }
-                    .fill(controller.chartSliceData.backgroundColor)
-                }
                 
                 if controller.chartSliceData.showPercent {
                     let textPosition = controller.calculateTextPosition(geometry)

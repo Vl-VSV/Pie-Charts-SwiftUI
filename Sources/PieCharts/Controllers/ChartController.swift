@@ -24,9 +24,8 @@ final internal class ChartController: ObservableObject {
                 endAngle: Angle(degrees: endDeg + degrees),
                 percent: data.cost / sum,
                 color: data.color,
-                backgroundColor: chartConfigurator.backgroundColor,
                 showPercent: chartConfigurator.showPercents,
-                isStatic: isChartStatic(),
+                chartType: chartConfigurator.chartType,
                 percentColor: chartConfigurator.percentColor,
                 percentFont: chartConfigurator.percentFont
             ))
@@ -39,8 +38,6 @@ final internal class ChartController: ObservableObject {
     init(chartConfigurator: ChartConfigurator) {
         self.chartConfigurator = chartConfigurator
         self.activeIndex = -1
-        
-        self.sortChartData()
     }
 
     // MARK: - Functions
@@ -49,9 +46,5 @@ final internal class ChartController: ObservableObject {
             return true
         }
         return false
-    }
-    
-    private func sortChartData() {
-        chartConfigurator.chartData.sort { $0.cost < $1.cost }
     }
 }

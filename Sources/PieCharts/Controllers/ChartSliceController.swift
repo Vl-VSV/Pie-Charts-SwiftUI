@@ -22,6 +22,10 @@ final internal class ChartSliceController {
     
     // MARK: - Functions
     internal func calculateInnerRadius() -> CGFloat {
+        if case .fixed(let radius) = chartSliceData.chartType {
+            return radius / 2
+        }
+        
         let innerRadius = 0.25 + (1 - chartSliceData.percent) * (0.4 - 0.25) / (1 - 0)
         return min(max(innerRadius, 0.25), 0.4)
     }

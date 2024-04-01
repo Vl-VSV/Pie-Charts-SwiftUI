@@ -29,7 +29,6 @@ internal struct ChartView: View {
                     }
                 }
             }
-            .background(controller.chartConfigurator.backgroundColor)
         }
     }
 }
@@ -61,11 +60,6 @@ private struct ChartContentView: View {
                     activeIndex = -1
                 }
             )
-            if case .fixed(let innerRadius) = chartConfigurator.chartType {
-                Circle()
-                    .fill(chartConfigurator.backgroundColor)
-                    .frame(width: geometry.size.width * innerRadius, height: geometry.size.width * innerRadius)
-            }
         }
     }
     

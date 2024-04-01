@@ -49,15 +49,13 @@ public struct ChartConfigurator {
     var showTitle: Bool
     var showPercents: Bool
     
-    var titleFont: Font = .title
-    var percentFont: Font = .body
+    var titleFont: Font
+    var percentFont: Font
     
-    var backgroundColor: Color = .white
+    var chartTitleColorType: ChartTitleColorType
+    var percentColor: Color
     
-    var chartTitleColorType: ChartTitleColorType = .dynamic(defaultColor: .black)
-    var percentColor: Color = .black
-    
-    var formatter: (Double) -> String = { String(format: "%.2f $", $0) }
+    var formatter: (Double) -> String
     
     // MARK: - Init
     public init(chartType: ChartType,
@@ -66,7 +64,6 @@ public struct ChartConfigurator {
                 showPercents: Bool,
                 titleFont: Font = .title,
                 percentFont: Font = .body,
-                backgroundColor: Color = .white,
                 chartTitleColorType: ChartTitleColorType = .dynamic(defaultColor: .black),
                 percentColor: Color = .black,
                 formatter: @escaping (Double) -> String = { String(format: "%.2f $", $0) }) {
@@ -76,7 +73,6 @@ public struct ChartConfigurator {
         self.showPercents = showPercents
         self.titleFont = titleFont
         self.percentFont = percentFont
-        self.backgroundColor = backgroundColor
         self.chartTitleColorType = chartTitleColorType
         self.percentColor = percentColor
         self.formatter = formatter

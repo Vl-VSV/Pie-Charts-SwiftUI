@@ -13,10 +13,8 @@ internal struct ChartSliceData {
     let percent: Double
     let color: Color
     
-    let backgroundColor: Color
-    
     let showPercent: Bool
-    let isStatic: Bool
+    let chartType: ChartType
     
     let percentColor: Color
     let percentFont: Font

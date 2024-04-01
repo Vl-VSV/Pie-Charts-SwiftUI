@@ -7,8 +7,8 @@ import SwiftUI
 #Preview {
     ChartView(chartController: ChartController(chartConfigurator: ChartConfigurator(
         chartType: .dynamic,
-        chartData: [ChartDataSection(name: "Rent", cost: 500, color: .green),
-                    ChartDataSection(name: "Taxi", cost: 1000, color: .red),
+        chartData: [ChartDataSection(name: "Rent", cost: 1000, color: .green),
+                    ChartDataSection(name: "Taxi", cost: 500, color: .red),
                     ChartDataSection(name: "Food", cost: 2000, color: .yellow),
                    ],
         showTitle: true,
@@ -27,7 +27,6 @@ import SwiftUI
         showPercents: true,
         titleFont: .title.bold(),
         percentFont: .title3,
-        backgroundColor: .cyan,
         chartTitleColorType: .fixed(color: .white),
         percentColor: .white,
         formatter: { String(format: "%.2f руб", $0) }
