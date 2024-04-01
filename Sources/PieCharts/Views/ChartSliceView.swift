@@ -53,6 +53,9 @@ internal struct ChartSliceView: View {
                     path.closeSubpath()
                 }
                 .fill(controller.chartSliceData.color)
+                .onTapGesture {
+                    print("..")
+                }
                 
                 if controller.chartSliceData.showPercent {
                     let textPosition = controller.calculateTextPosition(geometry)

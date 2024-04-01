@@ -28,13 +28,13 @@ public enum ChartGestureType {
 // MARK: - Chart Data Section
 public struct ChartDataSection {
     let name: String
-    let cost: Double
+    let value: Double
     let color: Color
     
     // MARK: - Init
     public init(name: String, cost: Double, color: Color) {
         self.name = name
-        self.cost = cost
+        self.value = cost
         self.color = color
     }
 }

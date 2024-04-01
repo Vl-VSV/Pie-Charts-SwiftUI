@@ -13,16 +13,16 @@ final internal class ChartController: ObservableObject {
     @Published var activeIndex: Int
     
     var slices: [ChartSliceData] {
-        let sum = chartConfigurator.chartData.reduce(0) { $0 + $1.cost }
+        let sum = chartConfigurator.chartData.reduce(0) { $0 + $1.value }
         var endDeg: Double = 0
         var tempSlices: [ChartSliceData] = []
         
         for data in chartConfigurator.chartData {
-            let degrees: Double = data.cost * 360 / sum
+            let degrees: Double = data.value * 360 / sum
             tempSlices.append(ChartSliceData(
                 startAngle: Angle(degrees: endDeg),
                 endAngle: Angle(degrees: endDeg + degrees),
-                percent: data.cost / sum,
+                percent: data.value / sum,
                 color: data.color,
                 showPercent: chartConfigurator.showPercents,
                 chartType: chartConfigurator.chartType,

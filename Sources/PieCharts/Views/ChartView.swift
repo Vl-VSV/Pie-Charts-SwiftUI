@@ -13,8 +13,8 @@ internal struct ChartView: View {
     @ObservedObject var controller: ChartController
     
     //MARK: - Init
-    public init(chartController: ChartController) {
-        self.controller = chartController
+    public init(chartConfigurator: ChartConfigurator) {
+        self.controller = ChartController(chartConfigurator: chartConfigurator)
     }
     
     // MARK: - Body
@@ -100,7 +100,7 @@ private struct TitleView: View {
     }
     
     private var valueText: String {
-        return chartConfigurator.formatter(activeIndex == -1 ? chartConfigurator.chartData.reduce(0) { $0 + $1.cost } : chartConfigurator.chartData[activeIndex].cost)
+        return chartConfigurator.formatter(activeIndex == -1 ? chartConfigurator.chartData.reduce(0) { $0 + $1.value } : chartConfigurator.chartData[activeIndex].value)
     }
     
     // MARK: - Body
