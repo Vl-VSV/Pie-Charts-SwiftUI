@@ -8,9 +8,10 @@ import SwiftUI
     ChartView(chartConfigurator: ChartConfigurator(
         chartType: .dynamic,
         chartData: [ChartDataSection(name: "Rent", cost: 1000, color: .green),
-                    ChartDataSection(name: "Taxi", cost: 500, color: .red),
-                    ChartDataSection(name: "Food", cost: 2000, color: .yellow),
+                    ChartDataSection(name: "Taxi", cost: 400, color: .red),
+                    ChartDataSection(name: "Food", cost: 300, color: .yellow),
                    ],
+        chartGestureType: .hold,
         showTitle: true,
         showPercents: false
     ))
@@ -29,7 +30,7 @@ import SwiftUI
         percentFont: .title3,
         chartTitleColorType: .fixed(color: .black),
         percentColor: .white,
-        formatter: { String(format: "%.2f руб", $0) }
+        formatter: { ("Sum", String(format: "%.2f руб", $0)) }
     ))
 }
 

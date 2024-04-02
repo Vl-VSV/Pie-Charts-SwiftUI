@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-final internal class ChartSliceController {
+final class ChartSliceController {
     // MARK: - Properties
     let chartSliceData: ChartSliceData
     
-    internal var midRadians: Double {
+    var midRadians: Double {
         return Double.pi / 2.0 - (chartSliceData.startAngle + chartSliceData.endAngle).radians / 2.0
     }
     
@@ -21,7 +21,7 @@ final internal class ChartSliceController {
     }
     
     // MARK: - Functions
-    internal func calculateInnerRadius() -> CGFloat {
+    func calculateInnerRadius() -> CGFloat {
         if case .fixed(let radius) = chartSliceData.chartType {
             return radius / 2
         }
@@ -30,7 +30,7 @@ final internal class ChartSliceController {
         return min(max(innerRadius, 0.25), 0.4)
     }
 
-    internal func calculateTextPosition(_ geometry: GeometryProxy) -> CGPoint {
+    func calculateTextPosition(_ geometry: GeometryProxy) -> CGPoint {
         let x = geometry.size.width * 0.5 * CGFloat(1.0 + 0.78 * cos(midRadians))
         let y = geometry.size.height * 0.5 * CGFloat(1.0 - 0.78 * sin(midRadians))
         return CGPoint(x: x, y: y)

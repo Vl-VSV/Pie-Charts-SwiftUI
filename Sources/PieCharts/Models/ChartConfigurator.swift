@@ -42,33 +42,38 @@ public struct ChartDataSection {
 // MARK: - Chart Configurator
 public struct ChartConfigurator {
     let chartType: ChartType
-    var chartData: [ChartDataSection]
+    let chartData: [ChartDataSection]
     
-    let chartGestureType: ChartGestureType = .hold // Пока tap не реализовано
+    let chartGestureType: ChartGestureType
     
-    var showTitle: Bool
-    var showPercents: Bool
+    let showTitle: Bool
+    let showPercents: Bool
     
-    var titleFont: Font
-    var percentFont: Font
+    let titleFont: Font
+    let percentFont: Font
     
-    var chartTitleColorType: ChartTitleColorType
-    var percentColor: Color
+    let chartTitleColorType: ChartTitleColorType
+    let percentColor: Color
     
-    var formatter: (Double) -> String
+    let formatter: (Double) -> (String, String)
+    let scaleCoefficient: CGFloat
     
     // MARK: - Init
     public init(chartType: ChartType,
                 chartData: [ChartDataSection],
+                chartGestureType: ChartGestureType = .hold,
                 showTitle: Bool,
                 showPercents: Bool,
                 titleFont: Font = .title,
                 percentFont: Font = .body,
                 chartTitleColorType: ChartTitleColorType = .dynamic(defaultColor: .black),
                 percentColor: Color = .black,
-                formatter: @escaping (Double) -> String = { String(format: "%.2f $", $0) }) {
+                formatter: @escaping (Double) -> (String, String) = { ("Total", String(format: "%.2f $", $0)) },
+                scaleCoefficient: CGFloat = 1.03
+    ) {
         self.chartType = chartType
         self.chartData = chartData
+        self.chartGestureType = chartGestureType
         self.showTitle = showTitle
         self.showPercents = showPercents
         self.titleFont = titleFont
@@ -76,5 +81,6 @@ public struct ChartConfigurator {
         self.chartTitleColorType = chartTitleColorType
         self.percentColor = percentColor
         self.formatter = formatter
+        self.scaleCoefficient = scaleCoefficient
     }
 }

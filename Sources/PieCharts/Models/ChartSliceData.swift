@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-internal struct ChartSliceData {
+struct ChartSliceData {
     let startAngle: Angle
     let endAngle: Angle
     let percent: Double
@@ -18,5 +18,4 @@ internal struct ChartSliceData {
     
     let percentColor: Color
     let percentFont: Font
-    
 }

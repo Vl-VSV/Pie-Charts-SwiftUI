@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final internal class ChartController: ObservableObject {
+final class ChartController: ObservableObject {
     // MARK: - Properties
     @Published var chartConfigurator: ChartConfigurator
     @Published var activeIndex: Int
