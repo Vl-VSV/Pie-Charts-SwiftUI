@@ -1,7 +1,7 @@
 # PieCharts SwiftUI
 
 A simple library for creating customizable Pie Charts in SwiftUI with various settings and options.
-![MainDemo.gif](Demo%20Images%2FMainDemo.gif)
+<img width="30%" src="https://github.com/Vl-VSV/Pie-Charts-SwiftUI/blob/main/Demo%20Images/MainDemo.gif">
 
 ## Installation
 
@@ -43,7 +43,7 @@ You can choose chart type:
 chartType: .dynamic
 ```
 
-![Dynamic.png](Demo%20Images%2FDynamic.png)
+<img width="30%" src="https://github.com/Vl-VSV/Pie-Charts-SwiftUI/blob/main/Demo%20Images/Dynamic.png">
 
 * **Fixed**
 
@@ -53,7 +53,7 @@ chartType: .fixed(innerRadiusFraction: 0.6)
 
 You can adjust the inner radius fraction.
 
-![Fixed.png](Demo%20Images%2FFixed.png)
+<img width="30%" src="https://github.com/Vl-VSV/Pie-Charts-SwiftUI/blob/main/Demo%20Images/Fixed.png">
 
 ### Gesture Type
 
@@ -73,7 +73,7 @@ chartGestureType: .tap
 
 Demonstration
 
-![Gesture.gif](Demo%20Images%2FGesture.gif)
+<img width="30%" src="https://github.com/Vl-VSV/Pie-Charts-SwiftUI/blob/main/Demo%20Images/Gesture.gif">
 
 ### Font Customization
 
@@ -131,7 +131,7 @@ formatter: (Double) -> (String, String)
 formatter: { ("Total Amount", String(format: "%.2f €", $0)) }
 ```
 
-![Formatter.png](Demo%20Images%2FFormatter.png)
+<img width="30%" src="https://github.com/Vl-VSV/Pie-Charts-SwiftUI/blob/main/Demo%20Images/Formatter.png">
 
 ## Issues
 
