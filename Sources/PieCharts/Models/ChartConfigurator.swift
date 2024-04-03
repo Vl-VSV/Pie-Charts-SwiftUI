@@ -32,9 +32,9 @@ public struct ChartDataSection {
     let color: Color
     
     // MARK: - Init
-    public init(name: String, cost: Double, color: Color) {
+    public init(name: String, value: Double, color: Color) {
         self.name = name
-        self.value = cost
+        self.value = value
         self.color = color
     }
 }
@@ -67,7 +67,7 @@ public struct ChartConfigurator {
                 titleFont: Font = .title,
                 percentFont: Font = .body,
                 chartTitleColorType: ChartTitleColorType = .dynamic(defaultColor: .black),
-                percentColor: Color = .black,
+                percentColor: Color = .white,
                 formatter: @escaping (Double) -> (String, String) = { ("Total", String(format: "%.2f $", $0)) },
                 scaleCoefficient: CGFloat = 1.03
     ) {

@@ -26,8 +26,8 @@ final class ChartSliceController {
             return radius / 2
         }
         
-        let innerRadius = 0.25 + (1 - chartSliceData.percent) * (0.4 - 0.25) / (1 - 0)
-        return min(max(innerRadius, 0.25), 0.4)
+        let innerRadius = 0.2 + (1 - chartSliceData.percent) * (0.4 - 0.2)
+        return min(max(innerRadius, 0.2), 0.4)
     }
 
     func calculateTextPosition(_ geometry: GeometryProxy) -> CGPoint {

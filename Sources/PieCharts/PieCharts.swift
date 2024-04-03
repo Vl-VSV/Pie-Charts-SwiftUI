@@ -7,10 +7,11 @@ import SwiftUI
 #Preview {
     ChartView(chartConfigurator: ChartConfigurator(
         chartType: .dynamic,
-        chartData: [ChartDataSection(name: "Rent", cost: 1000, color: .green),
-                    ChartDataSection(name: "Taxi", cost: 400, color: .red),
-                    ChartDataSection(name: "Food", cost: 300, color: .yellow),
-                   ],
+        chartData: [
+            ChartDataSection(name: "Rent", value: 1000, color: .green),
+            ChartDataSection(name: "Taxi", value: 400, color: .red),
+            ChartDataSection(name: "Food", value: 200, color: .yellow),
+        ],
         chartGestureType: .hold,
         showTitle: true,
         showPercents: false
@@ -20,10 +21,11 @@ import SwiftUI
 #Preview {
     ChartView(chartConfigurator: ChartConfigurator(
         chartType: .fixed(innerRadiusFraction: 0.6),
-        chartData: [ChartDataSection(name: "Rent", cost: 300, color: .green),
-                    ChartDataSection(name: "Taxi", cost: 500, color: .red),
-                    ChartDataSection(name: "Food", cost: 1300, color: .yellow),
-                   ],
+        chartData: [
+            ChartDataSection(name: "Rent", value: 300, color: .green),
+            ChartDataSection(name: "Taxi", value: 500, color: .red),
+            ChartDataSection(name: "Food", value: 1300, color: .yellow),
+        ],
         showTitle: true,
         showPercents: true,
         titleFont: .title.bold(),
@@ -40,8 +42,8 @@ import SwiftUI
             ChartConfigurator(
                 chartType: .dynamic,
                 chartData: [
-                    .init(name: "Food", cost: 500, color: .red),
-                    .init(name: "Taxi", cost: 250, color: .blue),
+                    .init(name: "Food", value: 500, color: .red),
+                    .init(name: "Taxi", value: 250, color: .blue),
                 ],
                 showTitle: true,
                 showPercents: false
